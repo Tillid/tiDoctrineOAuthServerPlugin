@@ -7,7 +7,7 @@
    http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0
    http://pear.php.net/dtd/package-2.0.xsd"
 >
-  <name>tiDoctrineOAuthPlugin</name>
+  <name>tiDoctrineOAuthServerPlugin</name>
   <channel>pear.symfony-project.com</channel>
   <summary>A OAuth Server plugin.</summary>
   <description>A OAuth Server plugin.</description>
