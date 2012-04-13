@@ -1,1 +1,78 @@
-tiDoctrineOAuthServerPlugin (for Symfony 1.4)
+#tiDoctrineOAuthServerPlugin (for Symfony 1.4)#
+
+The _tiDoctrineOAuthServerPlugin_ provides the basis for making an OAuth server. It provides each requested URL in the OAuth protocol 1.0a (request token, user authorization and access token). It provides the pages to authorize/refuse the access to the connected sfDoctrineGuardUser. If the user is not connected, he is automatically redirected to a login page. The authorized consumer keys (that authorizes applications to request tokens) are defined in the database (they must be added manually for the moment).
+
+##Installation##
+
+* Install the plugin (via a package)
+
+        symfony plugin:install tiDoctrineOAuthServerPlugin
+
+* Install the plugin (via a git checkout)
+
+        git clone git://github.com/Tillid/tiDoctrineOAuthServerPlugin.git plugins/tiDoctrineOAuthServerPlugin
+
+* Activate the plugin in the config/ProjectConfiguration.class.php
+
+        [php]
+        class ProjectConfiguration extends sfProjectConfiguration
+        {
+          public function setup()
+          {
+            $this->enablePlugins(array(
+              'sfDoctrinePlugin', 
+              'sfDoctrineOAuthServerPlugin',
+              '...'
+            ));
+          }
+        }
+
+* Rebuild your model, update you database tables by starting from scratch and load the fixtures (it will delete all the existing tables, then re-create them)
+
+        symfony doctrine:build --all --and-load --no-confirmation
+
+* Enable the tiOAuthServer module in your _settings.yml_
+
+          all:
+            .settings:
+              enabled_modules:      [default, tiOAuthServer]
+
+* Clear your cache
+
+        symfony cc
+
+##How to use##
+
+The _tiDoctrineOAuthServerPlugin_ provides three routes, for each step of the OAuth connexion protocol :
+
+* __ti_oauth_request_token__: via __/request_token__, used to retrieve the request token
+
+* __ti_oauth_authorize__: via __/authorize__, used to allow the user to authorize (or not) the access to all the user data
+
+* __ti_oauth_access_token__: via __/access_token__, used to retrieve the access token, that must be stored in the client application.
+
+You can use a plugin like _sfDoctrineOAuthPlugin_ to manage the client-side connexion.
+
+Then, all you have to do is to create actions and protect them like that :
+
+    [php]
+    public function executeMyPostTicket(sfWebRequest $request)
+    {
+      try {
+        $req = OAuthRequest::from_request();
+        list($consumer, $token) = tiOAuthServer::getInstance()->verify_request($req);
+        $access_token = Doctrine_Core::getTable('OAuthServerAccessTokens')->createQuery('a')
+                ->where('a.id = ?', $token)
+                ->fetchOne();
+        if (!$access_token)
+          throw new OAuthException();
+        // Write your code here
+        echo $access_token->getIdUser();
+        return sfView::NONE;
+      } catch( OAuthException $e ) {
+        // The request wasn't valid!
+        header('WWW-Authenticate: OAuth realm="http://localhost/"');
+        echo 'I\'m afraid I can\'t let you do that Dave.';
+        die;
+      }
+    }
