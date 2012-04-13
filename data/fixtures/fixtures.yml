@@ -1,5 +1,0 @@
-# OAuthServerConsumers:
-#   basic:
-#     name: consumer
-#     _key: 12345
-#     secret: 67890
