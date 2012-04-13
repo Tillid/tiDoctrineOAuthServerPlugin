@@ -91,25 +91,25 @@
             <file role="data" name="PluginOAuthServerRequestTokensTable.class.php" />
           </dir>
         </dir>
-        <dir name="modules">
-          <dir name="tiOAuthServer">
-            <dir name="actions">
-              <file role="data" name="actions.class.php" />
-            </dir>
-            <dir name="config">
-              <file role="data" name="security.yml" />
-            </dir>
-            <dir name="templates">
-              <file role="data" name="accessTokenSuccess.php" />
-              <file role="data" name="authorizeFormSuccess.php" />
-              <file role="data" name="authorizeInvalidSuccess.php" />
-              <file role="data" name="authorizeRefusedSuccess.php" />
-              <file role="data" name="authorizeSuccess.php" />
-              <file role="data" name="requestTokenSuccess.php" />
-            </dir>
-          </dir>
-        </dir>
-      </dir>
+			</dir>
+			<dir name="modules">
+				<dir name="tiOAuthServer">
+					<dir name="actions">
+						<file role="data" name="actions.class.php" />
+					</dir>
+					<dir name="config">
+						<file role="data" name="security.yml" />
+					</dir>
+					<dir name="templates">
+						<file role="data" name="accessTokenSuccess.php" />
+						<file role="data" name="authorizeFormSuccess.php" />
+						<file role="data" name="authorizeInvalidSuccess.php" />
+						<file role="data" name="authorizeRefusedSuccess.php" />
+						<file role="data" name="authorizeSuccess.php" />
+						<file role="data" name="requestTokenSuccess.php" />
+					</dir>
+				</dir>
+			</dir>
     </dir>
   </contents>
  
