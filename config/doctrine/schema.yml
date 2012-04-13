@@ -1,0 +1,60 @@
+OAuthServerConsumers:
+  columns:
+    name: { type: string(255), notnull: true }
+    _key: { name: _key as key, type: string(255), notnull: true }
+    secret: { type: string(255), notnull: true }
+
+OAuthServerRequestTokens:
+  columns:
+    id_consumer: { type: integer, notnull: true }
+    _key: { name: _key as key, type: string(255), notnull: true }
+    secret: { type: string(255), notnull: true }
+    authorized: { type: integer, notnull: true }
+    id_user: { type: integer }
+  relations:
+    Consumer:
+      class: OAuthServerConsumers
+      onDelete: CASCADE
+      local: id_consumer
+      foreign: id
+      foreignAlias: RequestTokens
+    User:
+      class: sfGuardUser
+      onDelete: CASCADE
+      local: id_user
+      foreign: id
+      foreignAlias: RequestTokens
+
+OAuthServerAccessTokens:
+  columns:
+    id_consumer: { type: integer, notnull: true }
+    _key: { name: _key as key, type: string(255), notnull: true }
+    secret: { type: string(255), notnull: true }
+    id_user: { type: integer, notnull: true }
+  relations:
+    Consumer:
+      class: OAuthServerConsumers
+      onDelete: CASCADE
+      local: id_consumer
+      foreign: id
+      foreignAlias: AccessTokens
+    User:
+      class: sfGuardUser
+      onDelete: CASCADE
+      local: id_user
+      foreign: id
+      foreignAlias: AccessTokens
+
+OAuthServerNonces:
+  columns:
+    id_consumer: { type: integer, notnull: true }
+    token: { type: string(255), notnull: true }
+    nonce: { type: string(255), notnull: true }
+    timestamp: { type: integer, notnull: true }
+  relations:
+    Consumer:
+      class: OAuthServerConsumers
+      onDelete: CASCADE
+      local: id_consumer
+      foreign: id
+      foreignAlias: Nonces

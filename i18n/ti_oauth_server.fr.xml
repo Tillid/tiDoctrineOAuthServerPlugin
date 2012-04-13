@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd" >
+<xliff version="1.0">
+  <file original="global" source-language="en" target-language="fr" datatype="plaintext">
+    <header/>
+    <body>
+      <trans-unit id="1">
+        <source>Congratulations !</source>
+        <target>Félicitations !</target>
+      </trans-unit>
+      <trans-unit id="2">
+        <source>You successfully authorize the application to access all your data. You can now close this page.</source>
+        <target>Vous avez bien autorisé l'application à accéder à toutes vos données. Vous pouvez maintenant fermer cette page.</target>
+      </trans-unit>
+      <trans-unit id="3">
+        <source>You successfully refused the access for the application.</source>
+        <target>L'accès de l'application à vos données a été refusé.</target>
+      </trans-unit>
+      <trans-unit id="4">
+        <source>The request token you try to validate is invalid. Please do all the steps again.</source>
+        <target>Le jeton que vous essayez de valider est invalide. Veuillez reprendre toutes les étapes de connexion depuis le début.</target>
+      </trans-unit>
+      <trans-unit id="5">
+        <source>If the problem persists, please contact the webmaster.</source>
+        <target>Si le problème persiste, veuillez contacter l'administrateur de ce site.</target>
+      </trans-unit>
+      <trans-unit id="6">
+        <source>By clicking on the "I Accept" button, I authorize this application to access all my data, without storing my password.</source>
+        <target>En cliquant sur le bouton "J'accepte", j'autorise l'application à accéder à toutes mes données, sans stocker mon mot de passe.</target>
+      </trans-unit>
+      <trans-unit id="7">
+        <source>A click on the "I Refuse" button will destroy the request token, and refuse the authorization.</source>
+        <target>En cliquant sur le bouton "Je refuse", le jeton de connexion sera détruit et l'autorisation déclinée.</target>
+      </trans-unit>
+      <trans-unit id="8">
+        <source>I Accept</source>
+        <target>J'accepte</target>
+      </trans-unit>
+      <trans-unit id="9">
+        <source>I Refuse</source>
+        <target>Je refuse</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

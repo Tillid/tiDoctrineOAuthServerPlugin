@@ -1,0 +1,11 @@
+ti_oauth_access_token:
+  url: /access_token
+  param: { module: tiOAuthServer, action: accessToken }
+
+ti_oauth_authorize:
+  url: /authorize
+  param: { module: tiOAuthServer, action: authorize }
+
+ti_oauth_request_token:
+  url: /request_token
+  param: { module: tiOAuthServer, action: requestToken }
