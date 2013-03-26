@@ -58,6 +58,7 @@ You should override each of these templates to have nice pages.
 First you have to generate an application key and secret to be used by the client. You can do that by simply rename data/fixtures/fixtures.yml to fixtures.yml.
 
 You can use a plugin like _sfDoctrineOAuthPlugin_ to manage the client-side connexion. Here is the PHP code you have to use to connect the client:
+
     [php]
     $server = "http://localhost/my_project";
     // Application key and secret registered in our server
@@ -75,6 +76,7 @@ You can use a plugin like _sfDoctrineOAuthPlugin_ to manage the client-side conn
     $verifier = $oauth->requestAuth(array('oauth_callback' => $oauth->getCallback()));
 
 You have to configure the callback action (called at the callback URL defined above):
+
     [php]
     $server = "http://localhost/my_project";
     $verifier = $request->getParameter('oauth_verifier');
