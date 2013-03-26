@@ -124,6 +124,6 @@ Then, all you have to do is to create actions and protect them like that:
 
 ##Changelog
 
-_2013/03/26: **develop**_
+_2013/03/26: **0.0.5**_
  * The README now has a better documentation
  * Add .md extension to the README file 
